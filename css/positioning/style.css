@@ -1,0 +1,28 @@
+body {
+max-width: 960px;
+margin: 0px;
+padding: 0px;
+}
+.center {
+position: relative;
+left: 50%;
+}
+#octopus {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+#hat {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  padding-top: 0px;
+}
+#glasses {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  padding-top: 180px;
+  padding-left: 40px;
+}
