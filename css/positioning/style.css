@@ -1,14 +1,5 @@
-body {
-  max-width: 960px;
-  margin: 0px;
-  padding: 0px;
-}
-.center {
-  position: relative;
-  left: 50%;
-}
+
 #octopus {
-  position: absolute;
   display: block;
   margin: 0 auto;
   padding-top: 80px;
@@ -16,13 +7,12 @@ body {
 #hat {
   position: absolute;
   display: block;
-  margin: 0 auto;
-  padding-top: 0px;
+  left: 435px;
+  top:15px;
 }
 #glasses {
   position: absolute;
   display: block;
-  margin: 0 auto;
-  padding-top: 180px;
-  padding-left: 40px;
+  left: 493px;
+  top: 186px;
 }
