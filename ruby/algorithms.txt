@@ -1,0 +1,58 @@
+# Algorithm for a robot using an elevator to come to my floor (10th floor):
+- If it is on the 10th floor:
+    - Do not use the elevator.
+- Otherwise
+  - Walk to the location which is in front of the buttons outside the elevator.
+  - If the current floor is taller than 10th floor:
+      - Push the 'down' button.
+  - If the current floor is lower than 10th floor:
+      - Push the 'up' button.
+  - Walk to the position in front of the door.
+  - Wait until the door open.
+  - Walk into the elevator.
+  - Walk to the position in front of the buttons.
+  - Push the '10' button.
+  - Walk to the position face the door.
+  - Until the elevator stops at 10th floor.
+    - Wait in the elevator.
+    - Look at the sign which indicates arrival at 10th floor.
+  - Walk outside the elevator.
+
+# Find a Real-Life Algorithm - make a sandwich:
+- Get a bread from cupboard.
+- Walking to the table in the kitchen.
+- Put the bread on the cutting board on the table.
+- Get a knife from the knife stand.
+- Use the knife to cut the bread into two pieces.
+- Put the knife down.
+- Take the bread and walk to the toaster.
+- Until two piece of breads are toasted:
+  - Put one piece of bread in the toaster.
+  - Set timing.
+  - Push the button to start.
+  - Wait until the toaster sound indicates it is done.
+  - Take the bread out.
+- Put the two piece bread on the table in the kitchen.
+- Walk to the fridge.
+- Take the tomato, lettuce and ham in the fridge.
+- Walk to the table where the toasted breads located.
+- If the lettuce is good:
+  - Put some good leaves on a bread.
+- Otherwise:
+  - Throw in gabbage bin.
+- If the tomato is good:
+  - Cut into pieces.
+  - Put the cut tomato on top of the lettuce which has already put on a bread.
+- Otherwise:
+  - Throw the bad tomato in gabbage.
+- Put some pieces of ham on top of the tomato which already on the bread.
+- Put another piece of bread on top of the ham.
+- If there are not lettuce, tomato or ham left on the table:
+  - Enjoy eating the sandwich.
+- Otherwise:
+  - Put the unused lettuce, tomato or ham back in fridge.
+  - Enjoy eating the sandwich.
+
+
+
+
