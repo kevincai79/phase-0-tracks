@@ -9,6 +9,7 @@
   margin-top: 20px;
   margin-bottom:20px;
 }
+
 .accomplishment {
   font-size: .8em;
 
@@ -19,7 +20,7 @@ h2::first-letter {
   font-size: 1.5em;
 }
 
-ul > li {
-  background-color: #32CD32;
+ol > li {
+  color: purple;
 
 }
