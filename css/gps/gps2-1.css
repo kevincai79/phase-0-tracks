@@ -1,5 +1,6 @@
 body{
   margin: auto;
+  max-width: 960px;
 }
 h1 {
   color: purple;
@@ -37,6 +38,23 @@ section h2 {
   text-align: center;
   color: #339966;
 }
+a:link {
+  color: blue;
+}
+a:visited {
+  color: purple;
+}
+section.column-1 article ul {
+  list-style-type: none;
+}
+section.column-1 article ul li a:hover {
+  background-color: yellow;
+  color: red;
+}
+#emphasize {
+  color: red;
+  font-weight: bold;
+}
 
 footer {
   margin: auto;
@@ -47,4 +65,18 @@ footer {
   text-align :center;
   padding :10px;
   border-radius: 5px;
+}
+@media only screen and (max-width: 800px) {
+  section {
+    margin: auto;
+    margin-top: 10px;
+    width: 95%;
+    height: 100%;
+    padding: 0 15px;
+    border-radius: 0px;
+  }
+  section.column-2 {
+    position: relative;
+    bottom: 12px;
+  }
 }
