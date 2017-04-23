@@ -24,17 +24,14 @@ encrypt("zed")
 
 def decrypt(text)
   n = 0
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
   new_text =""
   new_string =""
   while n < text.length
-    if text[n] == " " || text[n] == "a"
-      if text[n] == " "
+    if text[n] == " "
         new_text = " "
-      else
-        new_text = "z"
-      end
     else
-      new_text = (text[n].ord - 1).chr
+      new_text = alphabet[alphabet.index(text[n])-1]
     end
     new_string += new_text
     n += 1
