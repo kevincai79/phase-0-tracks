@@ -1,3 +1,5 @@
+# OUR ENCRYPT AND DECRYPT METHODS FOR SECRET AGENTS
+
 # Input the text
 # Split the text into single character,
 # and replace it with a letter forward
@@ -5,8 +7,8 @@
 
 def encrypt(text)
   i = 0
-  new_text =""
-  new_string =""
+  new_text =""   # Declare an empty string to take the replace character
+  new_string =""  # Declare an empty string we will add to
   while i < text.length        # Set loop times
     if text[i] == " " || text[i] == "z"
       if text[i] == " "    # Add conditional logic for " " case
@@ -15,16 +17,15 @@ def encrypt(text)
         new_text = "a"     # Add conditional logic for edge case
       end
     else
-      new_text = text[i].next
+      new_text = text[i].next  # Replace the character with one letter forward
     end
-    new_string += new_text
+    new_string += new_text  # Add up the characters to the new string
     i += 1
   end
-  puts new_string
-  new_string
+  new_string  # To avoid debugging and return value of nil
 end
-encrypt("abc")
-encrypt("zed")
+puts encrypt("abc")      # Test method and print the result
+puts encrypt("zed")
 
 # Input the text
 # Split the text into single character,
@@ -33,9 +34,10 @@ encrypt("zed")
 
 def decrypt(text)
   n = 0
+  # Declare alphabet string to index letters
   alphabet = "abcdefghijklmnopqrstuvwxyz"
-  new_text =""
-  new_string =""
+  new_text =""  # Declare an empty string to take the replace character
+  new_string =""   # Declare an empty string we will add to
   while n < text.length   # Set loop times
     if text[n] == " "     # Add conditional logic for " " case
         new_text = " "
@@ -43,20 +45,42 @@ def decrypt(text)
       # Use alphabet to replace current character with one letter backward
       new_text = alphabet[alphabet.index(text[n])-1]
     end
-    new_string += new_text
+    new_string += new_text  # Add up the characters to the new string
     n += 1
   end
-  puts new_string
-  new_string
+  new_string   # To avoid debugging and return value of nil
 end
-decrypt("bcd")
-decrypt("afe")
+puts decrypt("bcd")   # Test method and print the result
+puts decrypt("afe")
 
-decrypt(encrypt("swordfish"))
+puts decrypt(encrypt("swordfish"))
 =begin
-Above code first calls the method encrypt("swordfish") and print out the value,
-then the value as the parameter of the encrypt method and print out the encrypt value.
+Above code first calls the method encrypt("swordfish") and return encrypt value,
+then the value as the parameter of the encrypt method and return the encrypt value.
 =end
+
+# Ask a secrect agent what he/she wants to do
+puts "Would you like to decrypt or encrypt a password (decrypt/encrypt)? "
+
+# Prompt for secrect agent's request
+request = gets.chomp
+
+# Ask a secrect agent's password
+puts "Please enter your password (letters only):"
+
+# Prompt for secrect agent's password
+password = gets.chomp.downcase
+
+# Conduct the requested operation and print the result
+# to the screen
+if request == "decrypt"
+  puts "The decrypt password is: #{decrypt(password)}"
+else
+  puts "The encrypt password is: #{encrypt(password)}"
+end
+
+# Exit and say bye to the secrect agent
+puts "Bye!"
 
 
 
