@@ -66,7 +66,7 @@ puts "Would you like to decrypt or encrypt a password (decrypt/encrypt)? "
 request = gets.chomp
 
 # Ask a secrect agent's password
-puts "Please enter your password (letters only):"
+puts "Please enter your password (letters and space only):"
 
 # Prompt for secrect agent's password
 password = gets.chomp.downcase
