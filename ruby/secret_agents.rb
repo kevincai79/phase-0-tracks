@@ -7,8 +7,8 @@
 
 def encrypt(text)
   i = 0
-  new_text =""   # Declare an empty string to take the replace character
-  new_string =""  # Declare an empty string we will add to
+  new_text = ""   # Declare an empty string to take the replace character
+  new_string = ""  # Declare an empty string we will add to
   while i < text.length        # Set loop times
     if text[i] == " " || text[i] == "z"
       if text[i] == " "    # Add conditional logic for " " case
@@ -36,8 +36,8 @@ def decrypt(text)
   n = 0
   # Declare alphabet string to index letters
   alphabet = "abcdefghijklmnopqrstuvwxyz"
-  new_text =""  # Declare an empty string to take the replace character
-  new_string =""   # Declare an empty string we will add to
+  new_text = ""  # Declare an empty string to take the replace character
+  new_string = ""   # Declare an empty string we will add to
   while n < text.length   # Set loop times
     if text[n] == " "     # Add conditional logic for " " case
         new_text = " "
@@ -60,7 +60,7 @@ then the value as the parameter of the encrypt method and return the encrypt val
 =end
 
 # Ask a secrect agent what he/she wants to do
-puts "Would you like to decrypt or encrypt a password (decrypt/encrypt)? "
+puts "Would you like to decrypt or encrypt a password (decrypt/encrypt)?"
 
 # Prompt for secrect agent's request
 request = gets.chomp
