@@ -1,3 +1,5 @@
+# VAMPIRE CHECK METHOD
+
 puts "How many employees will be processed?"
 employee_number = gets.chomp
 n = employee_number.to_i
@@ -11,22 +13,20 @@ n.times do
   puts "Would you like to enroll in the company's health insurance (y/n)?"
   insurance = gets.chomp
 
-  if employee_name == "Drake Cula" || employee_name == "Tu Fang"
-    result = "Definitely a vampire."
+  result = ""
 
-    elsif age == "right" && (garlic_bread == "y" || insurance == "y")
-      result = "Probably not a vampire."
+  result = "Probably not a vampire." if age == "right" && (garlic_bread == "y" || insurance == "y")
 
-    elsif age == "wrong" && (garlic_bread == "n" && insurance ==  "n")
-      result = "Almost certainly a vampire."
+  result = "Probably a vampire."  if age == "wrong" && (garlic_bread == "n" || insurance == "n")
 
-    elsif age == "wrong" && (garlic_bread == "n" || insurance   == "n")
-      result = "Probably a vampire."
+  result = "Almost certainly a vampire." if age == "wrong" && (garlic_bread == "n" && insurance ==  "n")
 
-    else
-      result = "Results inconclusive."
-  end
+  result = "Definitely a vampire." if employee_name == "Drake Cula" || employee_name == "Tu Fang"
+
+  result = "Results inconclusive." if result == ""
+
   puts result
+
 end
 
 print "Name your allergies, once at a time and type done when finished: "
