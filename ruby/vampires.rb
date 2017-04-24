@@ -1,18 +1,28 @@
-# VAMPIRE CHECK METHOD
+# OUR VAMPIRE CHECK METHOD
 
 puts "How many employees will be processed?"
-employee_number = gets.chomp
-n = employee_number.to_i
-n.times do
+employee_number = gets.chomp.to_i
+
+employee_number.times do
+
   puts "What's your name?"
   employee_name = gets.chomp
-  puts "How old are you? What year were you born? (right/ wrong)"
-  age = gets.chomp
+
+  puts "How old are you?"
+  age = gets.chomp.to_i
+
+  puts "What year were you born?"
+  born_year = gets.chomp.to_i
+
   puts "Our company cafeteria serves garlic bread. Should we worder some for you (y/n)?"
   garlic_bread = gets.chomp
+
   puts "Would you like to enroll in the company's health insurance (y/n)?"
   insurance = gets.chomp
 
+  correct_age = 2017 - born_year == age
+  like_garlic_bread = garlic_bread == "y"
+  take_insurance = insurance == "y"
   result = ""
 
   result = "Probably not a vampire." if age == "right" && (garlic_bread == "y" || insurance == "y")
@@ -29,7 +39,7 @@ n.times do
 
 end
 
-print "Name your allergies, once at a time and type done when finished: "
+puts "Name your allergies, once at a time and type done when finished: "
   employee_input = ""
 until employee_input == "done"
       employee_input = gets.chomp
@@ -40,7 +50,7 @@ until employee_input == "done"
       puts "Thank you for the survey."
     else
       puts "Allergy: #{employee_input}"
-      print "Name your allergy or type 'done' to finish: "
+      puts "Name your allergy or type 'done' to finish: "
   end
 end
 
