@@ -11,10 +11,10 @@ employee_number.times do
   puts "How old are you?"
   age = gets.chomp.to_i
 
-  puts "What year were you born?"
+  puts "When were you born?"
   born_year = gets.chomp.to_i
 
-  puts "Our company cafeteria serves garlic bread. Should we worder some for you (y/n)?"
+  puts "Our company cafeteria serves garlic bread. Should we order some for you (y/n)?"
   garlic_bread = gets.chomp
 
   puts "Would you like to enroll in the company's health insurance (y/n)?"
@@ -25,33 +25,39 @@ employee_number.times do
   take_insurance = insurance == "y"
   result = ""
 
-  result = "Probably not a vampire." if age == "right" && (garlic_bread == "y" || insurance == "y")
+  result = "Probably not a vampire." if correct_age && ( like_garlic_bread || take_insurance )
 
-  result = "Probably a vampire."  if age == "wrong" && (garlic_bread == "n" || insurance == "n")
+  result = "Probably a vampire."  if !correct_age && ( like_garlic_bread || take_insurance )
 
-  result = "Almost certainly a vampire." if age == "wrong" && (garlic_bread == "n" && insurance ==  "n")
+  result = "Almost certainly a vampire." if !correct_age && ( !like_garlic_bread && !take_insurance )
 
   result = "Definitely a vampire." if employee_name == "Drake Cula" || employee_name == "Tu Fang"
 
   result = "Results inconclusive." if result == ""
 
-  puts result
-
-end
-
-puts "Name your allergies, once at a time and type done when finished: "
-  employee_input = ""
-until employee_input == "done"
-      employee_input = gets.chomp
-  if employee_input == "sunshine"
-      puts "Probably a vampire."
-      employee_input = "done"
-   elsif employee_input == "done"
+  puts "Name your allergies, once at a time and type 'done' when finished:"
+    employee_allergy_input = ""
+  until employee_allergy_input == "done"
+        employee_allergy_input = gets.chomp
+    if employee_allergy_input == "sunshine"
+      if result == "Definitely a vampire."
+        result
+        employee_allergy_input = "done"
+      elsif result == "Almost certainly a vampire."
+        result
+        employee_allergy_input = "done"
+      else
+        result = "Probably a vampire."
+        employee_allergy_input = "done"
+      end
+    elsif employee_allergy_input == "done"
       puts "Thank you for the survey."
     else
-      puts "Allergy: #{employee_input}"
-      puts "Name your allergy or type 'done' to finish: "
+      puts "Allergy: #{employee_allergy_input}"
+      puts "Name your allergy or type 'done' to finish:"
+    end
   end
+  puts result
 end
 
 puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
