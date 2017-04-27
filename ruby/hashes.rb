@@ -51,3 +51,10 @@ if update_item == "have_cat"
 end
 
 puts client_data
+
+# ACCOMPLISHMENTS OF 5.2
+
+accomplishments = ["Initialize and manipulate arrays", "Initialize and manipulate hashes", "Use variables to access arrays", "Use variables to access hashes", "Experiment with expressions that reference data structures", "Integrate a data structure into a simple program"]
+new_accomplishment = "used data structures in Ruby"
+accomplishments.push (new_accomplishment)
+puts accomplishments
