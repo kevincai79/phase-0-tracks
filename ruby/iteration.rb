@@ -16,7 +16,7 @@ def countup(int)
   yield(int)
 end
 
-countup(10) { |int| puts "This concludes the countup method. We counted up to #{int}." }
+countup(10) { |int| puts "This concludes the countup method. We counted up to #{int-1}." }
 
 
 zoo_animals = ["lion", "tiger", "snake", "monkey"]
