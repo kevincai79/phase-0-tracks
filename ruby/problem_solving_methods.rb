@@ -16,3 +16,16 @@ def search_index(arr, x)
 end
 end
 
+# 5.6 release 1
+
+
+def fib(x)
+  fibo_number = [0, 1]
+  (x - 2).times do |n|
+  n = fibo_number[-1] + fibo_number[-2]
+  fibo_number << n
+end
+  puts fibo_number
+end
+
+fib(100)
