@@ -55,14 +55,18 @@ new_full_name.chop
 end
 
 # USER INTERFACE
-
+agent_name = Hash.new
 loop do
 puts "Please enter your full name, letters and space only, type 'quit' to quit."
 full_name = gets.chomp.downcase
 if full_name != "quit" && !full_name.empty?
-  puts translate_full_name(full_name)
+  translate_full_name(full_name)
+  agent_name[full_name.to_sym] = translate_full_name(full_name)
 end
 break if full_name == "quit"
 end
 
-# STORE THE DATA
+agent_name.each do |real_name, fake_name|
+puts "#{fake_name} is actually #{real_name.to_s}."
+end
+
