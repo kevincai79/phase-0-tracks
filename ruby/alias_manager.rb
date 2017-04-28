@@ -2,9 +2,11 @@
 
 # BUSINESS LOGIC
 
+# Split the full name to names
+
 # Swap the first and last name.
 
-# Split name to words
+# Split name to array with character
 
 =begin
 Translate each character in each word with below rules:
@@ -18,31 +20,49 @@ def translate_char(char)
   vowel = "aeiou"
   consonant = "bcdfghjklmnpqrstvwxyz"
     if vowel.index(char) != nil
-      if char == 'u'
+      if char == "u"
         char = "a"
       else
         vowel[vowel.index(char) + 1]
       end
-    elsif consonant.index(char) != nil
+    else
       if char == "z"
         char = "b"
       else
         consonant[consonant.index(char) + 1]
       end
-    else
-      puts "Please input valid name."
     end
 end
 
-def translate_word(word)
+def translate_name(name)
+  new_name = ""
+  name.each do |char|
+    new_name += translate_char(char)
+  end
+  new_name
+end
 
+def translate_full_name(full_name)
+  new_full_name = ""
+  split_names = full_name.split (" ")
+  transfer = split_names[0]
+  split_names[0] = split_names[-1]
+  split_names[-1] = transfer
+  split_names.each do |name|
+    new_full_name << translate_name(name.split ("")).capitalize + " "
+  end
+new_full_name.chop
 end
 
 # USER INTERFACE
-def translate_name
-  puts "Please enter your full name:"
-  full_name = gets.chomp
 
+loop do
+puts "Please enter your full name, letters and space only, type 'quit' to quit."
+full_name = gets.chomp.downcase
+if full_name != "quit" && !full_name.empty?
+  puts translate_full_name(full_name)
+end
+break if full_name == "quit"
 end
 
 # STORE THE DATA
