@@ -1,8 +1,12 @@
 
 # 5.6 Mandatory Pairing: Solving Problems with Data Structures
-# Kevin Cai & Jaesley
+# Kevin Cai & Jae Easley
 
 # 5.6 release 0: Implement a Simple Search
+
+# Below between line 11 to line 24 (in between '=begin' and '=end') was the code we worked out first
+
+=begin
 
 def search_index(arr, x)
   i = 0
@@ -19,11 +23,31 @@ def search_index(arr, x)
 end
 end
 
+=end
+
+# Updated method from Jae Easley without using .include:
+
+ def search_array(array, x)
+  i = 0
+
+  array.each do | y |
+    if y == x
+      return i
+    end
+    i += 1
+  end
+  return nil
+end
+
+test_array = [ 1, 2, 3, 5, 8, 100 ]
+search_array(test_array, 5)
+search_array(test_array, 7)
+
 # 5.6 release 1: Calculate Fibonacci Numbers
 
 def fib(x)
   fibo_number = [0, 1]
-  (x - 2).times do |n|
+  (x - 2).times do
   n = fibo_number[-1] + fibo_number[-2]
   fibo_number << n
   end
