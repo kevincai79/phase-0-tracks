@@ -43,9 +43,11 @@ end
 p zoo_animals
 
 #Release 1 hash .each iteration
+p visitor
 visitor.each do |key, value|
   puts "#{key}: #{value}"
 end
+p visitor
 
 #Release 2
 
