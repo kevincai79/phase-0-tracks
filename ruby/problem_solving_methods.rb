@@ -6,7 +6,6 @@
 
 def search_index(arr, x)
   i = 0
-
   if !arr.include? x
     return nil
   else
