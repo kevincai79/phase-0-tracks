@@ -7,7 +7,7 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 
 zombie_apocalypse_supplies.each do | supply |
-  puts supply
+  puts  supply
   puts "*"
 end
 
@@ -62,16 +62,63 @@ check_item("compass")
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
-# ----
+
+def only_5_item(array)
+  new_array = []
+  i = 0
+  while i < 5
+    new_array << array[i]
+    i += 1
+  end
+  return array = new_array
+end
+
+zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+                              "shotgun", "compass", "CB radio", "batteries"]
+puts only_5_item(zombie_apocalypse_supplies)
+
+# We can also use below code to change the array if we do not use method
+
+=begin
+
+zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars", "shotgun", "compass", "CB radio", "batteries"]
+
+new_array = []
+i = 0
+while i < 5
+  new_array << zombie_apocalypse_supplies[i]
+  i += 1
+end
+
+zombie_apocalypse_supplies = new_array
+
+puts zombie_apocalypse_supplies
+
+=end
 
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
 # and their supplies below. You should get rid of any duplicate items.
 # Find the built-in method that helps you accomplish this in the Ruby
 # documentation for Arrays.
+
+zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+                              "shotgun", "compass", "CB radio", "batteries"]
 other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
-# ----
+combined_list = zombie_apocalypse_supplies
+
+other_survivor_supplies.keep_if do |supply|
+  zombie_apocalypse_supplies.index(supply) == nil
+end
+
+i = 0
+while i < other_survivor_supplies.length
+combined_list << other_survivor_supplies[i]
+i += 1
+end
+
+puts combined_list
 
 # Hash Drills
 
@@ -88,7 +135,10 @@ extinct_animals = {
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
 
-extinct_animals.each {| key, value | print "#{key}-#{value}*"}
+extinct_animals.each do | key, value |
+  puts "Extinct Animals: #{key}-#{value}"
+  puts "*"
+end
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
