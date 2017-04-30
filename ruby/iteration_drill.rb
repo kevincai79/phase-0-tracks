@@ -5,16 +5,59 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 
 # 1. Iterate through the zombie_apocalypse_supplies array,
 # printing each item in the array separated by an asterisk
-# ----
+
+zombie_apocalypse_supplies.each do | supply |
+  puts supply
+  puts "*"
+end
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
-# ----
+
+def sort_list(array)
+  loop do
+    sorted = false
+    i = 0
+    while i < array.length - 1
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i]
+        sorted = true
+      end
+        i += 1
+    end
+    break if sorted == false
+  end
+  array
+end
+
+puts sort_list(zombie_apocalypse_supplies)
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
 # For instance: are boots in your list of supplies?
-# ----
+
+def check_item(string)
+  zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+                              "shotgun", "compass", "CB radio", "batteries"]
+
+  i = 0
+  is_supply = false
+
+  while i < zombie_apocalypse_supplies.length
+    if zombie_apocalypse_supplies[i] == string
+      is_supply = true
+      i = zombie_apocalypse_supplies.length
+    else
+      i += 1
+    end
+  end
+
+  puts "#{string} is in your list of supplies." if is_supply == true
+  puts "#{string} is not in your list of supplies." if is_supply == false
+end
+
+check_item("compass")
+
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
@@ -44,7 +87,8 @@ extinct_animals = {
 
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
-# ----
+
+extinct_animals.each {| key, value | print "#{key}-#{value}*"}
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
