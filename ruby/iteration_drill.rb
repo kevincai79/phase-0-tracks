@@ -224,4 +224,16 @@ is_extinct_animal("Saiga Antelope")
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find the built-in method that helps you accomplish this in the Ruby documentation
 # for Hashes.
-# ----
+
+extinct_animals = {
+  "Tasmanian Tiger" => 1936,
+  "Eastern Hare Wallaby" => 1890,
+  "Dodo" => 1662,
+  "Pyrenean Ibex" => 2000,
+  "Passenger Pigeon" => 1914,
+  "West African Black Rhinoceros" => 2011,
+  "Laysan Crake" => 1923
+}
+
+p extinct_animals.delete_if { |animal, year| animal == "Passenger Pigeon"}
+p extinct_animals.to_a
