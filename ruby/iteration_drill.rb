@@ -57,6 +57,7 @@ def check_item(string)
 end
 
 check_item("compass")
+check_item("boots")
 
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
@@ -142,13 +143,40 @@ end
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
-# ----
+
+updated_extinct_animals = Hash.new
+
+extinct_animals.each do | animal, year |
+  if year < 2000
+    updated_extinct_animals[animal] = year
+  end
+end
+
+extinct_animals = updated_extinct_animals
+
+puts extinct_animals
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # so they accurately reflect what year the animal went extinct.
 # Do not use any special built-in methods.
-# ----
+
+extinct_animals = {
+  "Tasmanian Tiger" => 1936,
+  "Eastern Hare Wallaby" => 1890,
+  "Dodo" => 1662,
+  "Pyrenean Ibex" => 2000,
+  "Passenger Pigeon" => 1914,
+  "West African Black Rhinoceros" => 2011,
+  "Laysan Crake" => 1923
+}
+
+updated_extinct_animals = Hash.new
+extinct_animals.each do | animal, year |
+  updated_extinct_animals[animal] = year - 3
+end
+
+puts updated_extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
@@ -156,7 +184,41 @@ end
 # "Dodo"
 # "Saiga Antelope"
 # Do not use any special built-in methods.
-# ----
+
+def is_extinct_animal(animal)
+  extinct_animals = {
+  "Tasmanian Tiger" => 1936,
+  "Eastern Hare Wallaby" => 1890,
+  "Dodo" => 1662,
+  "Pyrenean Ibex" => 2000,
+  "Passenger Pigeon" => 1914,
+  "West African Black Rhinoceros" => 2011,
+  "Laysan Crake" => 1923
+  }
+  in_list = false
+  extinct_animal_names = []
+
+  extinct_animals.each do | extinct_animal, year |
+    extinct_animal_names << extinct_animal
+  end
+
+  i = 0
+  while i < extinct_animal_names.length
+    if animal == extinct_animal_names[i]
+      in_list = true
+      i = extinct_animal_names.length
+    else
+      i += 1
+    end
+  end
+
+  puts "#{animal} is included in the extinct_animals." if in_list == true
+  puts "#{animal} is not included in the extinct_animals." if in_list == false
+end
+
+is_extinct_animal("Andean Cat")
+is_extinct_animal("Dodo")
+is_extinct_animal("Saiga Antelope")
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
