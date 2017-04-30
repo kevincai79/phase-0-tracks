@@ -49,6 +49,16 @@ visitor.each do |key, value|
 end
 p visitor
 
+# Release 1 hash .map iteration? Only attempted this as it is in the grading rubric (maybe a typo).
+# There is no .map method in the docs for hash, and calling .map on a hash returns an array as expected,
+# and as can be seen below
+new_visitor = visitor.map do |k, v|
+  k = k.upcase
+  v = "N/A"
+end
+p visitor
+p new_visitor
+
 #Release 2
 
 #Array
