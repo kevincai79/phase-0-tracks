@@ -51,13 +51,17 @@ class Zoo
 end
 
 zoo_animal = []
+
 50.times do
   zoo_animal << Zoo.new("monkey", 2)
 end
 
+i = 1
 zoo_animal.each do |animal|
+  puts "Loop time #{i}:"
   animal.swim(100)
   animal.eat(3)
+  i += 1
 end
 
 
