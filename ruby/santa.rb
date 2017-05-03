@@ -50,11 +50,12 @@ end
 
 #santas[1].speak
 #santas.each(&:speak)
+puts Santa.new("male", "white").celebrate_birthday
+puts Santa.new("female", "asian").get_mad_at('Dasher')
+puts Santa.new("female", "white").gender = "trans"
+puts Santa.new("male", "asian").age
+puts Santa.new("female", "black").ethnicity
 
-puts "#{santas[2]} celebrate birthday of #{santas[2].celebrate_birthday}"
-puts santas[0].get_mad_at("Vixen")
-puts santas[1].age
-puts santas[3].ethnicity
 
 #Santa.new.speak
 #Santa.new.eat_milk_and_cookies("oreo")
