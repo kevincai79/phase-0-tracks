@@ -37,8 +37,8 @@ santa_genders = ["male", "trans", "bigender", "intersex", "female"]
 santa_ethnicities = ["white", "latino", "black","asian", "N/A"]
 reindeer_names = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 cookies = ["Dark Chocolate Cookie", "Peanut Butter Cookie", "Oatmeal Cranberry Cookie", "Walnut Chip Cookie"]
-=begin
-Test code below for release 0 to release 3:
+
+# Below test code for release 0 to release 3:
 
 santa_genders.length.times do |i|
   santas << Santa.new(santa_genders[i], santa_ethnicities[i])
@@ -53,10 +53,10 @@ puts new_santa.celebrate_birthday
 puts new_santa.get_mad_at("Comet")
 new_santa.gender = "male"
 puts "#{new_santa.ethnicity} #{new_santa.gender} Santa is #{new_santa.age} year old."
-=end
 
+# Release 4
 # Below we can print out as many Santas as we want
-100.times do
+50.times do
   puts "-------------------------------------------------"
   Santa.new(santa_genders.sample, santa_ethnicities.sample).speak
   Santa.new(santa_genders.sample, santa_ethnicities.sample).eat_milk_and_cookies(cookies.sample)
