@@ -113,5 +113,35 @@ print(grocery_list)
 
 # Test for printing the result of method creat_list
 
-print(create_list("book pen ink paper"))
+print(create_list("flower tree grass", 3))
 
+=begin
+
+Release 4: Reflect
+
+On your own, add a commented reflection section to your gps2_2.rb file. Answer the following questions in your reflection:
+
+What did you learn about pseudocode from working on this challenge?
+I learned a bit from doing pseudocode by following the pseudocode to kind of translate it to code. Although I am still not familiar with write pseudocode, hope I can improve in the future.
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+We decided to use hash as the list we wanted to use is more like key-value pair than ordered items.
+
+What does a method return?
+A method return the last expression it evaluates.
+
+What kind of things can you pass into methods as arguments?
+Basically all kinds of variable: string, integer, hash etc.
+
+How can you pass information between methods?
+By setting variables and parameters.
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+Solidified:
+  The ways to seperate functions with different methods;
+  Manipulate the hash with data.
+Still confusing:
+  Not sure how to refactor the code with best result.
+  Still don't know many build-in methods in doc.
+
+end
