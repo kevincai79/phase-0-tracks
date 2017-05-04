@@ -16,10 +16,31 @@
 # output: [what data type goes here, array or hash?]
 p create_list("monkey snake cat dog")
 p create_list("flower tree grass", 3)
+
 # Method to add an item to a list
 # input: list, item name, and optional quantity
 # steps:
-# output:
+  # If the item_name is not the list
+  # add item name and quantity as key-value pair to the list
+  # If the item name is exist, plus value one to the quantity
+
+# output: print list
+
+def add_item(list, item_name, quantity = 1)
+  if list.include?(item_name)
+    list[item_name] += 1
+  else
+    list[item_name] = quantity
+  end
+  list
+end
+
+vegetables = create_list("tomato onion pepper")
+p add_item(vegetables, "tomato")
+
+p add_item(vegetables, "potato", 2)
+
+
 
 # Method to remove an item from the list
 # input:
