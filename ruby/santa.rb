@@ -1,11 +1,13 @@
 class Santa
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
 
   def initialize(gender, ethnicity)
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
     @age = 0
-#    puts "Initializing Santa instance ..."
+    puts "Initializing Santa instance ..."
   end
 
   def speak
@@ -13,7 +15,7 @@ class Santa
   end
 
   def eat_milk_and_cookies(cookie_type)
-    puts "That was a good #{cookie_type}!"
+    puts "#{@ethnicity}: That was a good #{cookie_type}!"
   end
 
   def celebrate_birthday
@@ -24,23 +26,9 @@ class Santa
     @reindeer_ranking.delete(reindeer_name)
     @reindeer_ranking << reindeer_name
   end
-
-  def gender=(new_gender)
-    @gender = new_gender
-  end
-
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
 end
 
 santas = []
-
 santa_genders = ["male", "trans", "bigender", "intersex"]
 santa_ethnicities = ["white", "latino", "asian", "N/A"]
 
@@ -48,14 +36,12 @@ santa_genders.length.times do |i|
   santas << Santa.new(santa_genders[i], santa_ethnicities[i])
 end
 
-#santas[1].speak
-#santas.each(&:speak)
-puts Santa.new("male", "white").celebrate_birthday
-puts Santa.new("female", "asian").get_mad_at('Dasher')
-puts Santa.new("female", "white").gender = "trans"
-puts Santa.new("male", "asian").age
-puts Santa.new("female", "black").ethnicity
+santas.each(&:speak)
+santas[0].eat_milk_and_cookies("Oreo")
 
-
-#Santa.new.speak
-#Santa.new.eat_milk_and_cookies("oreo")
+new_santa = Santa.new("female", "black")
+puts "New Stanta is #{new_santa.ethnicity} #{new_santa.gender}."
+puts new_santa.celebrate_birthday
+puts new_santa.get_mad_at("Comet")
+new_santa.gender = "male"
+puts "#{new_santa.ethnicity} #{new_santa.gender} Santa is #{new_santa.age} year old."
