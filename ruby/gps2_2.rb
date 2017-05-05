@@ -46,10 +46,15 @@ puts grocery_list
 # input: list and the item want to be removed
 # steps:
   # IF there is a item in the list which is the same from the remove_item, delete it.
+  # Otherwise tells the user there is not such an item to remove
 
 def remove_item(list, remove_item)
-  list.delete_if { |item| item == remove_item }
-  list
+  if list.include?(remove_item)
+      list.delete_if { |item| item == remove_item }
+      list
+    else
+      puts "There is not #{remove_item} in the list"
+    end
 end
 
 # output: return a list with hash data structure
