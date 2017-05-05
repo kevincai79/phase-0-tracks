@@ -50,11 +50,11 @@ puts grocery_list
 
 def remove_item(list, remove_item)
   if list.include?(remove_item)
-      list.delete_if { |item| item == remove_item }
-      list
-    else
-      puts "There is not #{remove_item} in the list"
-    end
+    list.delete_if { |item| item == remove_item }
+    list
+  else
+    puts "There is not #{remove_item} in the list"
+  end
 end
 
 # output: return a list with hash data structure
