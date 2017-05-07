@@ -13,15 +13,19 @@ require_relative "word_guessing_game"
 describe WordGuessingGame do
 
   it "show maximum guess times" do
-    expect(WordGuessingGame.new("Hello World").count).to eq 10
+    expect(WordGuessingGame.new("hello world").count).to eq 10
   end
 
   it "display state" do
-    expect(WordGuessingGame.new("Sea World").original_state).to eq "_ _ _     _ _ _ _ _ "
+    expect(WordGuessingGame.new("sea world").original_state).to eq "- - -   - - - - - "
   end
 
-  it "check guessing character" do
-    expect(WordGuessingGame.new("Hello World").check_char("o")).to eq [4, 7]
+  it "check guessing character matching index from original phrase" do
+    expect(WordGuessingGame.new("hello world").char_index("o")).to eq [4, 7]
+  end
+
+  it "complete state" do
+    expect(WordGuessingGame.new("hello world").complete_state).to eq "h e l l o   w o r l d "
   end
 
 end

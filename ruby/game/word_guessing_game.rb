@@ -19,16 +19,16 @@ class WordGuessingGame
     state = ""
     @phrase.each_char do |char|
       if char != " "
-        char = "_ "
+        char = "- "
         state << char
       else
-        state << "    "
+        state << "  "
       end
     end
     state
   end
 
-  def check_char(character)
+  def char_index(character)
     index = []
     @phrase.length.times do |i|
       if @phrase[i] == character
@@ -37,4 +37,13 @@ class WordGuessingGame
     end
     index
   end
+
+  def complete_state
+    complete_phrase = ""
+    @phrase.each_char do |character|
+      complete_phrase << character + " "
+    end
+    complete_phrase
+  end
+
 end
