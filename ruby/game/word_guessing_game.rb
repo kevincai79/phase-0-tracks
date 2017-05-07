@@ -28,4 +28,13 @@ class WordGuessingGame
     state
   end
 
+  def check_char(character)
+    index = []
+    @phrase.length.times do |i|
+      if @phrase[i] == character
+        index << i
+      end
+    end
+    index
+  end
 end

@@ -20,6 +20,8 @@ describe WordGuessingGame do
     expect(WordGuessingGame.new("Sea World").original_state).to eq "_ _ _     _ _ _ _ _ "
   end
 
-  it "compare "
+  it "check guessing character" do
+    expect(WordGuessingGame.new("Hello World").check_char("o")).to eq [4, 7]
+  end
 
 end
