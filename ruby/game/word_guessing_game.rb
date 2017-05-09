@@ -61,34 +61,31 @@ i = 0
 
 while i < game.count
 
-    puts "Enter what you guess, each time with one character"
-    guess_character = gets.chomp.downcase
-
-    if !guess_characters.include?(guess_character)
-
-      guess_characters << guess_character
-      index = game.char_index(guess_character)
-
-      if !index.empty?
-        index.each do |i|
-          update_state[ i * 2 ] = guess_character
-        end
-        puts update_state
-          if update_state == game.complete_state
-            i = game.count
-            update_state
-          else
-            i += 1
-            update_state
-          end
-      else
-        i += 1
-        puts update_state
-        update_state
+  puts "Enter what you guess, each time with one character"
+  guess_character = gets.chomp.downcase
+  if !guess_characters.include?(guess_character)
+    guess_characters << guess_character
+    index = game.char_index(guess_character)
+    if !index.empty?
+      index.each do |i|
+        update_state[ i * 2 ] = guess_character
       end
-    else
       puts update_state
+        if update_state == game.complete_state
+          i = game.count
+          update_state
+        else
+          i += 1
+          update_state
+        end
+    else
+      i += 1
+      puts update_state
+      update_state
     end
+  else
+    puts update_state
+  end
 end
 
 if update_state == game.complete_state
