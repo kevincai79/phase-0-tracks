@@ -4,7 +4,7 @@
 # We spent [1] hours on this challenge.
 
 # EXPLANATION OF require_relative
-# Require_relative is most likely to link the files you wrote
+# Require_relative is most likely to bring in code from another file you wrote.
 #
 require_relative 'state_data'
 
@@ -28,6 +28,8 @@ class VirusPredictor
 # Base on the state population demsity, and the population to print out the predicted deaths.
   def predicted_deaths
     # predicted deaths is solely based on population density
+
+=begin
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
@@ -39,6 +41,17 @@ class VirusPredictor
     else
       number_of_deaths = (@population * 0.05).floor
     end
+=end
+
+    factor = case @population_density
+      when 0...50 then 0.05
+      when 50...100 then 0.1
+      when 100...150 then 0.2
+      when 150...200 then 0.3
+      else 0.4
+    end
+
+    number_of_deaths = (@population * factor).floor
 
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
@@ -51,6 +64,7 @@ class VirusPredictor
     # by additional factors we haven't added into this functionality.
     speed = 0.0
 
+=begin
     if @population_density >= 200
       speed += 0.5
     elsif @population_density >= 150
@@ -61,6 +75,15 @@ class VirusPredictor
       speed += 2
     else
       speed += 2.5
+    end
+=end
+
+    factor = case @population_density
+      when 0...50 then speed += 2.5
+      when 50...100 then speed += 2
+      when 100...150 then speed += 1.5
+      when 150...200 then speed += 1
+      else speed += 0.5
     end
 
     puts " and will spread across the state in #{speed} months.\n\n"
