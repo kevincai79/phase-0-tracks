@@ -119,3 +119,25 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
+=begin
+
+What are the differences between the two different hash syntaxes shown in the state_data file?
+  One is with string as key and use hash as value;
+  The other is use symbol as key and integer as value.
+
+What does require_relative do? How is it different from require?
+  require_relative will most likely be used to bring in code from another file that you wrote.
+  require will most likely be used to bring in code from a library someone else wrote.
+
+What are some ways to iterate through a hash?
+  1. Use Hash#each to iterate the hash.
+  2. Can set conditions then use 'loop do .. end' to iterate the hash as well.
+  3. Use hash.length to iterate the hash.
+
+When refactoring virus_effects, what stood out to you about the variables, if anything?
+  Instance variables don't need to pass in method as parameters.
+
+What concept did you most solidify in this challenge?
+  Better understanding instance variable's usage.
+
+=end
