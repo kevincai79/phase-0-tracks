@@ -31,27 +31,47 @@ puts encrypt("zed")
 # Split the text into single character,
 # and replace it with a letter backward
 # combine the new characters as a new string
+def is_letter_space(text)
+  alphabet = "abcdefghijklmnopqrstuvwxyz "
+  text_array = []
+  text.chars.each do |char|
+    if alphabet.index(char) == nil
+      text_array << false
+    else
+      text_array << true
+    end
+  end
+
+  if !text_array.include?(false)
+    return true
+  end
+end
 
 def decrypt(text)
-  n = 0
-  # Declare alphabet string to index letters
-  alphabet = "abcdefghijklmnopqrstuvwxyz"
-  new_text = ""  # Declare an empty string to take the replace character
-  new_string = ""   # Declare an empty string we will add to
-  while n < text.length   # Set loop times
-    if text[n] == " "     # Add conditional logic for " " case
-        new_text = " "
-    else
-      # Use alphabet to replace current character with one letter backward
-      new_text = alphabet[alphabet.index(text[n])-1]
+  if is_letter_space(text)
+    n = 0
+    # Declare alphabet string to index letters
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    new_text = ""  # Declare an empty string to take the replace character
+    new_string = ""   # Declare an empty string we will add to
+    while n < text.length   # Set loop times
+      if text[n] == " "     # Add conditional logic for " " case
+          new_text = " "
+      else
+        # Use alphabet to replace current character with one letter backward
+        new_text = alphabet[alphabet.index(text[n])-1]
+      end
+      new_string += new_text  # Add up the characters to the new string
+      n += 1
     end
-    new_string += new_text  # Add up the characters to the new string
-    n += 1
+    new_string   # To avoid debugging and return value of nil
+  else
+    "Invalid input, letters and spaces only."
   end
-  new_string   # To avoid debugging and return value of nil
 end
 puts decrypt("bcd")   # Test method and print the result
 puts decrypt("afe")
+puts decrypt("a*7e")
 
 puts decrypt(encrypt("swordfish"))
 =begin
@@ -74,9 +94,9 @@ password = gets.chomp.downcase
 # Conduct the requested operation and print the result
 # to the screen
 if request == "decrypt"
-  puts "The decrypt password is: #{decrypt(password)}"
+  puts "#{password} decrypt password is: #{decrypt(password)}"
 else
-  puts "The encrypt password is: #{encrypt(password)}"
+  puts "#{password} encrypt password is: #{encrypt(password)}"
 end
 
 # Exit and say bye to the secrect agent
