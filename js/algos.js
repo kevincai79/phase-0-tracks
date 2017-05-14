@@ -4,8 +4,17 @@ function longestPhrase(array) {
       array[i+1] = array[i];
     }
   }
-  return array[array.length - 1];
+
+  if (array[array.length -1].length === array[array.length -2].length ) {
+    return array[array.length - 2];
+  } else {
+    return array[array.length - 1];
+  }
 }
 
 var a = ["a", "hello wo", "sea world", "hi", "hellow world", "oala", "15"];
+var b = ["long phrase","longest phrase","longer phrase"];
+var c = ["tiger", "monkey", "cat", "snake", "pandas"]
 console.log(longestPhrase(a));
+console.log(longestPhrase(b));
+console.log(longestPhrase(c));
