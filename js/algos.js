@@ -67,6 +67,26 @@ function compareObject(obj1, obj2) {
   }
 }
 
+// Below is the refactoring code
+
+function compare(obj1, obj2) {
+  var keysArr1 = Object.keys(obj1);
+  var keysArr2 = Object.keys(obj2);
+//  var sharePair = {};
+
+  for (var i = 0; i < keysArr1.length; i++) {
+    for (var j = 0; j < keysArr2.length; j++) {
+      if (keysArr1[i] === keysArr2[j] && obj1[keysArr1[i]] === obj2[keysArr2[j]] ) {
+//        sharePair[keysArr1[i]] = obj1[keysArr1[i]];
+        return true;
+      }
+    }
+  }
+//  return sharePair;
+// line 85 is to match line 80 and line 75 if want to see the match results.
+  return false;
+}
+
 // RELEASE 2
 // Set an empty array randomStrings and a variable for letters.
 // Repeat the times of parameter doing below:
