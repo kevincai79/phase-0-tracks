@@ -72,7 +72,7 @@ function compareObject(obj1, obj2) {
 function compare(obj1, obj2) {
   var keysArr1 = Object.keys(obj1);
   var keysArr2 = Object.keys(obj2);
-  var sharePair = {};
+//  var sharePair = {};
 
   for (var i = 0; i < keysArr1.length; i++) {
     for (var j = 0; j < keysArr2.length; j++) {
@@ -83,7 +83,7 @@ function compare(obj1, obj2) {
     }
   }
 //  return sharePair;
-// line 85 is to match line 80 if want to see the match results.
+// line 85 is to match line 80 and line 75 if want to see the match results.
   return false;
 }
 
