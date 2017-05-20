@@ -1,0 +1,22 @@
+
+# There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+sqlite> .output queries.txt
+
+sqlite> SELECT users.first_name ||' '|| users.last_name AS full_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON users.id = reviews.user_id JOIN businesses ON businesses.id = reviews.business_id;
+
+Bradford Pitt|Sushi World|4|excellent food
+Mandy Kaling|Grundy Hollow Wedding Chapel|5|Great wedding venue
+Mandy Kaling|Amir's Towing|3|not good service
+Bradford Pitt|The Beagle Nightclub|2|seedy club
+Angela Jolie|Plumbing by Janet|1|terrible plumbing
+
+# How do you view the data of all three tables for just one particular business?
+
+sqlite> SELECT * FROM reviews JOIN users ON users.id = reviews.user_id JOIN businesses ON businesses.id = reviews.business_id WHERE businesses.id = 6;
+
+1|4|excellent food|6|1|1|Bradford|Pitt|6|Sushi World
+
+sqlite> SELECT users.first_name ||' '|| users.last_name AS full_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON users.id = reviews.user_id JOIN businesses ON businesses.id = reviews.business_id WHERE businesses.id = 1;
+
+Mandy Kaling|Grundy Hollow Wedding Chapel|5|Great wedding venue
