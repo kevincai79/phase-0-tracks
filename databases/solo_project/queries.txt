@@ -1,3 +1,5 @@
+# RELEASE 2
+
 1. Display the information in one table (either table is fine).
 
 sqlite> SELECT * FROM employees;
@@ -73,4 +75,79 @@ sqlite> SELECT * FROM employees;
 6|Jennifer|Chen|Software Engineer|150000|Shenzhen|false|3
 7|Julia|Barnett|Software Engineer|150000|San Francisco|true|1
 8|Aarron|Mitchell|Senior Software Engineer|180000|New York|false|1
-sqlite>
+
+# RELEASE 3
+
+sqlite> SELECT * FROM companies;
+1|Apple|USA
+2|Unilever|Netherlands
+3|Huawei|China
+4|Volkswagen|Germany
+5|Nestle|Switzerland
+
+sqlite> SELECT * FROM employees;
+2|Dan|Miller|Marketing Manager|110000|New York|false|1
+3|Kathy|Chase|HR Manager|100000|Amsterdam|true|2
+4|Patrick|Gray|IT Manager|120000|Amsterdam|false|2
+5|Edward|Zhou|Marketing Manager|100000|Beijing|false|3
+6|Jennifer|Chen|Software Engineer|150000|Shenzhen|false|3
+7|Julia|Barnett|Software Engineer|150000|San Francisco|true|1
+8|Aarron|Mitchell|Senior Software Engineer|180000|New York|false|1
+9|Shirley|Jiang|Gerneral Manager|250000|Shanghai|false|8
+
+# LEFT JOIN BELOW
+
+sqlite> SELECT * FROM companies LEFT JOIN employees ON companies.id = employees.company_id;
+1|Apple|USA|8|Aarron|Mitchell|Senior Software Engineer|180000|New York|false|1
+1|Apple|USA|2|Dan|Miller|Marketing Manager|110000|New York|false|1
+1|Apple|USA|7|Julia|Barnett|Software Engineer|150000|San Francisco|true|1
+2|Unilever|Netherlands|3|Kathy|Chase|HR Manager|100000|Amsterdam|true|2
+2|Unilever|Netherlands|4|Patrick|Gray|IT Manager|120000|Amsterdam|false|2
+3|Huawei|China|5|Edward|Zhou|Marketing Manager|100000|Beijing|false|3
+3|Huawei|China|6|Jennifer|Chen|Software Engineer|150000|Shenzhen|false|3
+4|Volkswagen|Germany||||||||
+5|Nestle|Switzerland||||||||
+
+# CROSS JOIN BELOW
+
+sqlite> SELECT first_name || ' ' || last_name, name FROM companies CROSS JOIN employees ORDER BY name;
+Dan Miller|Apple
+Kathy Chase|Apple
+Patrick Gray|Apple
+Edward Zhou|Apple
+Jennifer Chen|Apple
+Julia Barnett|Apple
+Aarron Mitchell|Apple
+Shirley Jiang|Apple
+Dan Miller|Huawei
+Kathy Chase|Huawei
+Patrick Gray|Huawei
+Edward Zhou|Huawei
+Jennifer Chen|Huawei
+Julia Barnett|Huawei
+Aarron Mitchell|Huawei
+Shirley Jiang|Huawei
+Dan Miller|Nestle
+Kathy Chase|Nestle
+Patrick Gray|Nestle
+Edward Zhou|Nestle
+Jennifer Chen|Nestle
+Julia Barnett|Nestle
+Aarron Mitchell|Nestle
+Shirley Jiang|Nestle
+Dan Miller|Unilever
+Kathy Chase|Unilever
+Patrick Gray|Unilever
+Edward Zhou|Unilever
+Jennifer Chen|Unilever
+Julia Barnett|Unilever
+Aarron Mitchell|Unilever
+Shirley Jiang|Unilever
+Dan Miller|Volkswagen
+Kathy Chase|Volkswagen
+Patrick Gray|Volkswagen
+Edward Zhou|Volkswagen
+Jennifer Chen|Volkswagen
+Julia Barnett|Volkswagen
+Aarron Mitchell|Volkswagen
+Shirley Jiang|Volkswagen
