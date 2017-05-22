@@ -54,12 +54,12 @@ end
 # print_students(students)
 
 # Create original students SQLite database.
-
 # age = [20, 21, 22, 23, 24, 25]
 # 20.times do
 #   add_student(db, Faker::Name.first_name, Faker::Name.last_name, age.sample)
 # end
 # db.execute('DELETE FROM students WHERE id >= 21 AND id <= 40')
+
 # USER INTERFACE
 
 # User interface to manipulate the database.
