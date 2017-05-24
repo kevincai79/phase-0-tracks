@@ -6,5 +6,6 @@ function addBorder(event) {
   event.target.style.border = "3px dotted orange";
 }
 
-var photo = document.getElementById("smiley-face");
+var photo = document.getElementsByTagName("img")[0];
+// var photo = document.getElementById("smiley-face");
 photo.addEventListener("click", addBorder);
