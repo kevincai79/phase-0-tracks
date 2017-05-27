@@ -69,6 +69,7 @@ get '/add/:number_1/:number_2' do
 end
 
 # Assignment 4
+# Search students in the same campus.
 get '/campus/:campus' do
   campuses = ['SD', 'SF', 'NYC', 'CHI', 'SEA']
   campus = params[:campus]
